@@ -19,3 +19,26 @@ $('a[href*="#"].scroll').not('[href="#"]').not('[href="#0"]').click(function(eve
       }
     }
   });
+
+$(document).ready(function() {
+    $(window).scroll( function() {
+        var scroll = $(window).scrollTop();
+        var speed = 0.5;
+        $('.parallax').each(function(){
+            var $this = $(this);
+            var $parent = $this.parent();
+            var topOffset = $parent.offset().top;
+            var height = $parent.outerHeight(true);
+            var parallaxSize = (scroll - topOffset) * speed;
+                
+            // prevent parallax when scroll down
+            if(scroll > topOffset + height) {
+                return;
+            }
+            
+            $this.css({ 
+                'transform': scroll >= topOffset ? ('translate(-75px, ' + parallaxSize + 'px)' ) : 'translateX(-75px)'
+            });
+        }); 
+    });  
+});

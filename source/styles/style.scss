@@ -1,345 +1,86 @@
 /* Sass Variables
 --------------------------------- */
-$primary: #109BE8;  //109BE8
+$primary: #E54B4B;  //109BE8
 $gray: #3D3D3D;
 $black: #151515; // 202020 ?
-$white: #FFF;
+$white: #F9F9F9;
 $accent: lighten($gray, 40%);
 
 /* Import
 --------------------------------- */
 @import 'normalize';
 @import 'skeleton';
-@import 'projects';
-@import 'projectdetails';
-@import 'modal';
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* Basic styling
 --------------------------------- */
-html,
-body { 
-    display: block;
-    padding: 0;
+body {
     margin: 0;
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    background-color: $white;
-    color: $black;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-a { 
-    color: $black; 
-    transition: color 0.3s ease; 
-    text-decoration: none;
-}
-a:hover { color: $primary; }
-
-p.text {
+    background-color: $white; 
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    line-height: 3.5rem;
-    font-size: 1.8rem;
 }
 
-p.text a {
-    color: $black;
-    transition: all 300ms ease;
-    border-bottom: 2px dashed $primary;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-p.text a:hover {
-    color: $primary;
+
+.info {
+    width: 40%;
+    background-color: $primary;
+    color: $white;
+    padding: 25px;
+    padding-right: 150px;
+    transform: translate(75px, 125px);
+    z-index: 10;
+}
+.image {
+    width: 60%;
+    align-items: stretch;
+    // display: block;
+    transform: translateX(-75px);
+    z-index: 11;
+}
+.section_video {
+    margin-bottom: 275px;
 }
 
 img {
     max-width: 100%;
 }
 
-/* Landing page hero text
---------------------------------- */
-.landingpage {
-    height: 100%;
-    width: 100%;
-    height: 100vh;
-
-    background-image: url('../images/mountain.png');
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-
-    box-shadow: 0 2px 25px $black;
-
-}
-
-.landingpage h1 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
-    color: $black;
-    font-size: 10rem;
-    margin-bottom: 0;
-}
-
-.landingpage p.lead {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
-    color: $gray;
-    font-size: 4rem;
-}
-span {
-    color: $primary;
-}
-
-/* Grid
---------------------------------- */
-.flex-container {
+.flex {
     display: flex;
-    align-items: flex-start;
-}
-.four { width: 40%; }
-.six { width: 60%; }
-
-@media (min-width: 550px) {
-    .portfolio, .about {
-        //margin-top: 75px;
-    }
-}
-
-/* Containers
---------------------------------- */
-.wrapper {
+    align-items: stretch;
+    max-width: calc(100vw - 50px);
     margin: 0 auto;
-    max-width: 960px;
 }
 
-.content-wrapper {
+.default_container {
+    width: calc(100% - 200px);
     margin: 0 auto;
-    max-width: 860px;
-    padding: 75px 0;
 }
-@media (min-width: 550px) {
-    .content-wrapper {
-        padding: 150px 0 75px 0;
-    }
+.center_text {
+    text-align: center;
 }
-
-.full-width-wrapper {
-    padding: 0 25px;
-    width: calc(100% - 50px);
-}
-
-.center-content {
-    padding: 100px 25px;
-}
-
-main.content {
-    background-color: $white;
-    color: $black; 
-}
-
-/* Texts
---------------------------------- */
-
-.hero-title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
+.sitetitle {
     font-size: 8rem;
-    margin-bottom: 0;
-}
-
-.social-media { 
-    list-style: none; 
-}
-.social-media li {
-    display: inline-flex;
-    margin: 0;
-    margin-right: 10px;
-    
-}
-.social-media li a {
-    color: $gray;
-    font-family: 'Open Sans', sans-serif;
-    transition: color 300ms ease;
-}
-.social-media li a:hover { color: $primary; }
-
-
-.contact .social-media li a {
-    color: $accent;
-}
-.contact .social-media li a:hover {
-    color: $primary;
-}
-
-hr.small {
-    max-width: 150px;
+    margin-top: 100px;
     padding: 0;
-    border: 1px solid $primary;
+}
+hr {
+    max-width: 150px;
+    border: none;
+    background-color: $primary;
+    height: 5px;
 }
 
-/* Footer
---------------------------------- */
-footer {
-    background-color: darken($white, 4);
-    width: calc(100% - 50px);
-    padding: 25px;
+.subtitle {
     color: $accent;
 }
 
-footer .copyright {
-    text-align: center;
-}
-footer .jp {
-    text-align: center;
-}
-
-/* Utils
---------------------------------- */
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
- 
-.fade-in {
-	opacity:0;  /* make things invisible upon start */
-	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-	-moz-animation:fadeIn ease-in 1;
-	animation:fadeIn ease-in 1;
- 
-	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-	-moz-animation-fill-mode:forwards;
-	animation-fill-mode:forwards;
- 
-	-webkit-animation-duration:0.75s;
-	-moz-animation-duration:0.75s;
-	animation-duration:0.75s;
-}
-
-::-moz-selection { 
-    color: $white;
-    background: $black;
-}
-
-::selection {
-    color: $white; 
-    background: $black;
-}
-
-/* fancy button
---------------------------------- */
-a.cta {
-    color: $black;
-    font-size: 1.2rem;
-    position: relative;
-    padding: 10px 25px;
-    letter-spacing: 2px;
-    color: $black;
-    border: 2px $black solid;
-    outline: 0;
-    overflow:hidden;
-    background: none;
-    transition: all 0.08s ease-in;
-}
-a.cta:hover {
-    color: $white;
-}
-
-a.cta:before {
-  content: "";
-  position: absolute;
-  background: $black;
-  left: 0;
-  bottom: 0;
-  right: 100%;
-  top: 0;
-  z-index: -1;
-  transition: right 0.09s ease-in;
-}
-a.cta:hover:before {
-  right: 0;
-}
-
-/* Filter
---------------------------------- */
-ul.project_filter {
-    list-style: none;
-    margin: 0;
-}
-ul.project_filter li {
-    display: inline-flex;
-    margin-right: 10px;
-}
-ul.project_filter li a{
-    color: $accent;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-}
-ul.project_filter li a:hover{
-    color: $primary;
-}
-ul.project_filter li a.selected{
-    border-bottom: 2px solid $primary;
-}
-
-/* Banner
---------------------------------- */
-.banner h1 {
-    font-family: 'Open Sans';
-    line-height: 75px;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin-left: 25px;
-}
-.banner {
-    border-bottom: 1px solid #F0F0F0;
-    position: fixed;
-    width: 100%;
-    height: 75px;
-    background-color: $white;
-    z-index: 300;
-    line-height: 75px;
-    display: none;
-}
-
-/* Mobile Styles
---------------------------------- */
-@media (max-width: 550px) {
-    .landingpage h1 {
-        font-size: 7rem;
-    }
-
-    .landingpage p.lead {
-        font-size: 2.5rem;
-    }
-
-    footer {
-        text-align: center;
-    }
-    .copyright {
-        float: none;
-    }
-
-    ul.project_filter li {
-        margin-right: 5px;
-    }
-    ul.project_filter li a{
-        font-size: 1.3rem;
-    }
-    .content-wrapper {
-        padding: 100px 25px 0 25px;
-    }
-
-    .flex-container {
-        display: block;
-    }
-    .six, .four {
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: 5.5rem;
-    }
-   
+video {
+    max-width: 100%;
+    height: auto;
 }

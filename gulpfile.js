@@ -30,34 +30,6 @@ gulp.task('js', function () {
         .pipe(browserSync.stream());
  
 });
-
-gulp.task('deploy', ['js','css'], function() {
-    gulp.src('/').pipe(prompt.prompt({
-        type: 'password',
-        name: 'pass',
-        message: 'Please enter your password'
-    }, function(res){
-        var conn = ftp.create( {
-            host:     'ftp.dariogartmann.ch',
-            user:     'thehid8',
-            password: res.pass,
-            parallel: 10
-        } );
-
-        var globs = [
-            'assets/**',
-            'index.html',
-            '.htaccess'
-        ];
-
-        // using base = '.' will transfer everything to /public_html correctly
-        // turn off buffering in gulp.src for best performance
-        return gulp.src( globs, { base: '.', buffer: false } )
-            .pipe( conn.newer( '/www/dariogartmann.ch/' ) ) // only upload newer files
-            .pipe( conn.dest( '/www/dariogartmann.ch/' ) );
-    }));
-    
-});
  
 gulp.task('serve', ['js','css'], function() {
  
