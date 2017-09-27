@@ -1,9 +1,9 @@
 /* Sass Variables
 --------------------------------- */
 $primary: #E54B4B;  //109BE8
-$gray: #3D3D3D;
-$black: #151515; // 202020 ?
-$white: #F9F9F9;
+$gray: #8F8F8F;
+$black: #151515; 
+$white: #FFF;
 $accent: lighten($gray, 40%);
 
 /* Import
@@ -11,7 +11,6 @@ $accent: lighten($gray, 40%);
 @import 'normalize';
 @import 'skeleton';
 
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* Basic styling
@@ -23,64 +22,137 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.info {
-    width: 40%;
-    background-color: $primary;
-    color: $white;
-    padding: 25px;
-    padding-right: 150px;
-    transform: translate(75px, 125px);
-    z-index: 10;
-}
-.image {
-    width: 60%;
-    align-items: stretch;
-    // display: block;
-    transform: translateX(-75px);
-    z-index: 11;
-}
-.section_video {
-    margin-bottom: 275px;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 img {
     max-width: 100%;
 }
 
-.flex {
-    display: flex;
-    align-items: stretch;
-    max-width: calc(100vw - 50px);
-    margin: 0 auto;
+/* Navigation and Header
+--------------------------------- */
+header {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 75px;
+    position: fixed;
+    transition: all 200ms ease;
+    border: none;
 }
 
-.default_container {
-    width: calc(100% - 200px);
-    margin: 0 auto;
+header h1.sitetitle {
+    float: left;
+    line-height: 75px;
+    font-size: 3rem;
 }
-.center_text {
+header .sitetitle a {
+    text-decoration: none;
+    color: $white;
+}
+header .menu-icon {
+    line-height: 75px;
+    color: $white;
+    float: right;
+}
+header.sticky .menu-icon, header.sticky h1.sitetitle a {
+    color: $black;
+}
+
+nav.fullscreen-navigation {
+    z-index: 10;
+    background-color: rgba(#000000, 0.85);
+    height: 100%;
+    height: 100vh;
+    width: 100%;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    transform-origin: top;
+    transform: rotateX(180deg);
+    transition: transform 500ms ease;
+}
+nav.fullscreen-navigation ul {
+    list-style: none;
     text-align: center;
 }
-.sitetitle {
-    font-size: 8rem;
-    margin-top: 100px;
+nav.fullscreen-navigation ul li a{
+    text-decoration: none;
+    font-size: 4rem;
+    color: $white;
+    transition: color 300ms ease-in-out;
+}
+nav.fullscreen-navigation ul li a:hover{
+    color: $primary;
+}
+
+header.navbar.sticky {
+    background-color: $white;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+/* Containers 
+--------------------------------- */
+.da-container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.full-width-section {
+    width: 100%;
+    width: 100vw;
+    padding: 75px 0;
+}
+
+
+/* Smaller than phablet */
+@media (max-width: 550px) {
+    .da-container {
+        width: calc(100% - 50px);
+        width: calc(100vw - 50px);
+    }
+}
+
+/* Frontpage 
+--------------------------------- */
+.frontpage {
+    background-image: url("../images/nofnog_drummer.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     padding: 0;
 }
-hr {
-    max-width: 150px;
-    border: none;
-    background-color: $primary;
-    height: 5px;
+
+/* Footer 
+--------------------------------- */
+footer {
+    background-color: #F1F1F1;
+    color: $gray;
 }
 
-.subtitle {
-    color: $accent;
+/* Smaller than mobile */
+@media (max-width: 400px) {
+
 }
 
-video {
-    max-width: 100%;
-    height: auto;
+/* Smaller than phablet */
+@media (max-width: 550px) {
+
 }
+
+/* Smaller than tablet */
+@media (max-width: 750px) {
+
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
