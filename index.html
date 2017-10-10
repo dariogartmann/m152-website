@@ -51,20 +51,24 @@
             <section class="full-width-section photo-section" id="photos">
                 <div class="da-container">
                     <h2>Photos</h2>
+                    <hr/>
+                    <br/>
+                    <br/>
                 </div>
+                    
                 <div class="grid">
                     <div class="grid-sizer"></div>
                     <div class="item wide">
-                        <img src="https://unsplash.it/1200/800/?random" alt="bla"/>
+                        <img src="https://unsplash.it/6000/4000/?random" alt="bla"/>
                     </div>
                     <div class="item">
-                        <img src="https://unsplash.it/800/1200/?random" alt="bla"/>
+                        <img src="https://unsplash.it/4000/6000/?random" alt="bla"/>
                     </div>
                     <div class="item">
                         <img src="https://unsplash.it/800/1200/?random" alt="bla"/>
                     </div>
                     <div class="item wide">
-                        <img src="https://unsplash.it/1200/800/?random" alt="bla"/>
+                        <img src="https://unsplash.it/6000/4000/?random" alt="bla"/>
                     </div>
                     <div class="item wide">
                         <img src="https://unsplash.it/1200/800/?random" alt="bla"/>
@@ -102,7 +106,8 @@
             var $grid = $('.grid').masonry({
                 itemSelector: '.item',
                 columnWidth: '.grid-sizer',
-                percentPosition: true
+                percentPosition: true,
+                gutter: 25
             });
             
             $grid.imagesLoaded().progress(function() {

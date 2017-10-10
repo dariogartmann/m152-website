@@ -185,10 +185,20 @@ p.hero_text {
 .photo-section {
     background-color: $black;
     color: $white;
+
+    text-align: center;
+}
+.photo-section hr {
+    margin: 0 auto;
+    max-width: 300px;
+    height: 4px;
+    background-color: $gray;
+    border: none;
 }
 
 .grid {
     z-index: $MIDGROUND;
+    margin: 0 25px;
 }
 
 .grid img {
@@ -196,17 +206,17 @@ p.hero_text {
 }
 
 .grid-sizer {
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 25px);
 }
 
 .item {
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 25px);
     float: left;
-    padding: 5px;
+    margin-bottom: 25px;
 }
 
 .item.wide {
-    width: calc(66.66% - 10px);
+    width: calc(66.66% - 25px);
 }
 
       
