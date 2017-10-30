@@ -17,6 +17,7 @@ $OVERLAY: 9999;
 @import 'skeleton';
 @import 'lumos';
 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* Basic styling
@@ -28,7 +29,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
@@ -61,8 +63,13 @@ header h1.sitetitle {
 }
 header .sitetitle a {
     text-decoration: none;
+    font-weight: 1;
     color: $white;
 }
+header .sitetitle a span{
+    font-weight: 700;
+}
+
 header .menu-icon {
     line-height: 75px;
     color: $white;
@@ -146,7 +153,7 @@ header.navbar.sticky {
 /* Frontpage 
 --------------------------------- */
 .frontpage {
-    background-image: url("../images/banner.jpg");
+    background-image: url("../images/gallery/full/DSC03090.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
