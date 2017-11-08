@@ -1,6 +1,6 @@
 /* Sass Variables
 --------------------------------- */
-$primary: #E54B4B;  //109BE8
+$primary: #E54B4B;
 $gray: #8F8F8F;
 $black: #151515; 
 $white: #F9F9F9;
@@ -8,7 +8,7 @@ $accent: lighten($gray, 40%);
 
 $BACKGROUND: 1;
 $MIDGROUND: 50;
-$FOREGROUND: 1000;
+$FOREGROUND: 3000;
 $OVERLAY: 9999;
 
 /* Import
@@ -24,13 +24,23 @@ $OVERLAY: 9999;
 --------------------------------- */
 body {
     margin: 0;
+    padding: 0;
     background-color: $white; 
-    font-family: 'Open Sans', sans-serif;
+    color: $black;
+    font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+}
+a:hover {
+    color: darken($primary, 0.5);
 }
 
 p {
@@ -44,9 +54,14 @@ img.logo {
     max-width: 250px;
 }
 
+.lumos-container {
+    z-index: 40000;
+}
+
 /* Navigation and Header
 --------------------------------- */
 header {
+    z-index: $FOREGROUND;
     left: 0;
     top: 0;
     width: 100%;
@@ -54,63 +69,34 @@ header {
     position: fixed;
     transition: all 200ms ease;
     border: none;
+
+    h1.sitetitle {
+        float: left;
+        line-height: 75px;
+        font-size: 3rem;
+
+        a {
+            text-decoration: none;
+            font-weight: 1;
+            color: $white;
+
+            span{
+                font-weight: 700;
+            }
+            
+        }
+    }
+
+    .menu-icon {
+        line-height: 75px;
+        color: $white;
+        float: right;
+        text-decoration: none;
+    }
 }
 
-header h1.sitetitle {
-    float: left;
-    line-height: 75px;
-    font-size: 3rem;
-}
-header .sitetitle a {
-    text-decoration: none;
-    font-weight: 1;
-    color: $white;
-}
-header .sitetitle a span{
-    font-weight: 700;
-}
-
-header .menu-icon {
-    line-height: 75px;
-    color: $white;
-    float: right;
-    text-decoration: none;
-}
 header.sticky .menu-icon, header.sticky h1.sitetitle a {
     color: $black;
-}
-
-nav.fullscreen-navigation {
-    z-index: $OVERLAY;
-    background-color: rgba(#000000, 0.85);
-    height: 100%;
-    height: 100vh;
-    width: 100%;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    display: flex;
-    position: fixed;
-    align-items: center;
-    flex-flow: row wrap;
-    justify-content: center;
-
-    transform-origin: top;
-    transform: rotateX(180deg);
-    transition: transform 500ms ease;
-}
-nav.fullscreen-navigation ul {
-    list-style: none;
-    text-align: center;
-}
-nav.fullscreen-navigation ul li a{
-    text-decoration: none;
-    font-size: 4rem;
-    color: $white;
-    transition: color 300ms ease-in-out;
-}
-nav.fullscreen-navigation ul li a:hover{
-    color: $primary;
 }
 
 header.navbar.sticky {
@@ -119,6 +105,82 @@ header.navbar.sticky {
     // border-bottom: 1px solid #F0F0F0;
     box-shadow: 0 -5px 20px 0px #999;
 }
+
+header.sticky .menu-icon, header.sticky h1.sitetitle a {
+    color: $black;
+}
+
+header.navbar.sticky {
+    z-index: $FOREGROUND;
+    background-color: $white;
+    // border-bottom: 1px solid #F0F0F0;
+    box-shadow: 0 -5px 20px 0px #999;
+}
+
+nav.fullscreen-navigation {
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.95);
+    height: 100%;
+    height: 100vh;
+    width: 100%;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transform-origin: top;
+    transform: rotateX(180deg);
+    transition: transform 500ms ease; 
+
+    ul {
+        list-style: none; 
+
+        li a {
+            text-decoration: none;
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 5.1rem;
+            color: $black; 
+        }
+    }
+}
+  
+.menu-item, .menu-item:hover {
+    color: $black;
+    position: relative; 
+}
+.menu-item:before {
+    content: "";
+    position: absolute;
+    background: rgba($primary, 0.5);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.09s ease-in; 
+}
+.menu-item:hover:before {
+    top: 50%; 
+}
+  
+.social {
+    text-decoration: none;
+    color: $black;
+    font-size: 2rem;
+    margin-right: 25px;
+}
+
+.menu-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .half {
+        width: 50%;
+    }
+    
+}
+
 
 /* Containers 
 --------------------------------- */
@@ -155,7 +217,7 @@ header.navbar.sticky {
 .frontpage {
     background-image: url("../images/gallery/full/DSC03090.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     height: 100vh;
     padding: 0;
 
@@ -189,35 +251,30 @@ p.hero_text {
 --------------------------------- */
 section h2 {
     margin-bottom: 0;
-}
-
-hr {
-    margin-left: 0;
-    text-align: left;
-    max-width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 2px;
-    background-color: $primary;
-    border: none;
+    position: relative;
 }
 
 /* Video section
 --------------------------------- */
+.video-section {
+    z-index: 0;    
+}
+
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
-	height: 0;
+    height: 0;
+    
+    iframe.youtube {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
 }
-.videoWrapper iframe.youtube {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
 
 /* Photo section
 --------------------------------- */
@@ -229,12 +286,11 @@ hr {
 .grid {
     z-index: $MIDGROUND;
     margin: 0 0 0 25px;
-}
 
-.grid img {
-    max-width: 100%;
+    img {
+        max-width: 100%;
+    }
 }
-
 .grid-sizer {
     width: calc(33.33% - 25px);
 }
@@ -259,6 +315,19 @@ hr {
 .logo-section {
 }
 
+/* Main-Button
+--------------------------------- */
+.btn-main {
+    text-decoration: none;
+    position: relative;
+    padding: 15px 50px;
+    border: 2px solid $primary;
+    background-color: $primary;
+    border-radius: 2px;
+    color: $white;
+    transition: all 300ms ease-in-out;
+    z-index: 0;
+}
 
 /* Footer 
 --------------------------------- */
@@ -269,12 +338,16 @@ footer {
 
 /* Smaller than mobile */
 @media (max-width: 400px) {
-
+    h1.sitetitle {
+        font-size: 2.5rem !important;
+    }
 }
 
 /* Smaller than phablet */
 @media (max-width: 550px) {
-
+    h1.sitetitle {
+        font-size: 2.75rem !important;
+    }
 }
 
 /* Smaller than tablet */
