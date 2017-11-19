@@ -50,7 +50,7 @@ p {
 img {
     max-width: 100%;
 }
-img.logo {
+img.logo, svg.mainlogo {
     max-width: 250px;
 }
 
@@ -153,9 +153,9 @@ nav.fullscreen-navigation {
     position: absolute;
     background: rgba($primary, 0.5);
     left: 0;
-    bottom: 25%;
+    bottom: 10%;
     right: 100%;
-    top: 45%;
+    top: 60%;
     z-index: -1;
     transition: right 300ms ease-in-out; 
 }
@@ -174,11 +174,10 @@ nav.fullscreen-navigation {
     height: 100%;
     display: flex;
     align-items: center;
+}
 
-    .half {
-        width: 50%;
-    }
-    
+.half {
+    width: 50%;
 }
 
 
