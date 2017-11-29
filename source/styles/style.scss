@@ -102,7 +102,6 @@ header.sticky .menu-icon, header.sticky h1.sitetitle a {
 header.navbar.sticky {
     z-index: $FOREGROUND;
     background-color: $white;
-    // border-bottom: 1px solid #F0F0F0;
     box-shadow: 0 -5px 20px 0px #999;
 }
 
@@ -350,6 +349,27 @@ footer {
 @media (max-width: 550px) {
     h1.sitetitle {
         font-size: 2.75rem !important;
+    }
+
+    .grid-sizer {
+        width: calc(100% - 25px);
+    }
+    
+    .item {
+        width: calc(100% - 25px);
+        float: left;
+        margin-bottom: 25px;
+    }
+    
+    .item.wide {
+        width: calc(100% - 25px);
+    }
+    .item.ultrawide {
+        width: calc(100% - 25px);
+    }
+
+    img.logo, svg.mainlogo {
+        max-width: 150px;
     }
 }
 

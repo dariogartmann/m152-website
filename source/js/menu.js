@@ -30,7 +30,7 @@ $(document).ready(function(){
     
     var $banner = $('.navbar');
     var $win = $(window);
-    var winH = $win.height();   // Get the window height.
+    var winH = $win.height();
 
     $win.on("scroll", function () {
         if ($(this).scrollTop() >= winH ) {
@@ -39,7 +39,7 @@ $(document).ready(function(){
             $banner.removeClass("sticky");
         }
 
-    }).on("resize", function(){ // If the user resizes the window
-       winH = $(this).height(); // you'll need the new height value
+    }).on("resize", function(){ 
+       winH = $(this).height(); 
     });
 });
