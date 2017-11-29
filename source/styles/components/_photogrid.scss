@@ -1,0 +1,55 @@
+/* Photo section
+--------------------------------- */
+.photo-section {
+    background-color: $black;
+    color: $white;
+}
+
+.grid {
+    z-index: $MIDGROUND;
+    margin: 0 0 0 25px;
+
+    img {
+        max-width: 100%;
+    }
+}
+.grid-sizer {
+    width: calc(33.33% - 25px);
+}
+
+.item {
+    width: calc(33.33% - 25px);
+    float: left;
+    margin-bottom: 25px;
+}
+
+.item.wide {
+    width: calc(66.66% - 25px);
+}
+.item.ultrawide {
+    width: calc(100% - 25px);
+}
+
+/* Smaller than phablet */
+@media (max-width: 550px) {
+    .grid-sizer {
+        width: calc(100% - 25px);
+    }
+    
+    .item {
+        width: calc(100% - 25px);
+        float: left;
+        margin-bottom: 25px;
+    }
+    
+    .item.wide {
+        width: calc(100% - 25px);
+    }
+    .item.ultrawide {
+        width: calc(100% - 25px);
+    }
+
+    img.logo, svg.mainlogo {
+        max-width: 150px;
+    }
+}

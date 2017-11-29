@@ -1,24 +1,13 @@
-/* Sass Variables
---------------------------------- */
-$primary: #E54B4B;
-$gray: #8F8F8F;
-$black: #151515; 
-$white: #F9F9F9;
-$accent: lighten($gray, 40%);
+/* Imports */
+@import 'variables';
+@import 'typography';
 
-$BACKGROUND: 1;
-$MIDGROUND: 50;
-$FOREGROUND: 3000;
-$OVERLAY: 9999;
+@import 'libs/normalize';
+@import 'libs/skeleton';
+@import 'libs/lumos';
 
-/* Import
---------------------------------- */
-@import 'normalize';
-@import 'skeleton';
-@import 'lumos';
-
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'components/navigation';
+@import 'components/photogrid';
 
 /* Basic styling
 --------------------------------- */
@@ -30,26 +19,10 @@ body {
     font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-a {
-    text-decoration: none;
-    color: $primary;
-}
-a:hover {
-    color: darken($primary, 0.5);
-}
-
-p {
-    max-width: 100%;
-}
-
 img {
     max-width: 100%;
 }
+
 img.logo, svg.mainlogo {
     max-width: 250px;
 }
@@ -57,128 +30,6 @@ img.logo, svg.mainlogo {
 .lumos-container {
     z-index: 40000;
 }
-
-/* Navigation and Header
---------------------------------- */
-header {
-    z-index: $FOREGROUND;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 75px;
-    position: fixed;
-    transition: all 200ms ease;
-    border: none;
-
-    h1.sitetitle {
-        float: left;
-        line-height: 75px;
-        font-size: 3rem;
-
-        a {
-            text-decoration: none;
-            font-weight: 1;
-            color: $white;
-
-            span{
-                font-weight: 700;
-            }
-            
-        }
-    }
-
-    .menu-icon {
-        line-height: 75px;
-        color: $white;
-        float: right;
-        text-decoration: none;
-    }
-}
-
-header.sticky .menu-icon, header.sticky h1.sitetitle a {
-    color: $black;
-}
-
-header.navbar.sticky {
-    z-index: $FOREGROUND;
-    background-color: $white;
-    box-shadow: 0 -5px 20px 0px #999;
-}
-
-header.sticky .menu-icon, header.sticky h1.sitetitle a {
-    color: $black;
-}
-
-header.navbar.sticky {
-    z-index: $FOREGROUND;
-    background-color: $white;
-    // border-bottom: 1px solid #F0F0F0;
-    box-shadow: 0 -5px 20px 0px #999;
-}
-
-nav.fullscreen-navigation {
-    z-index: 9999;
-    background-color: rgba(255, 255, 255, 0.95);
-    height: 100%;
-    height: 100vh;
-    width: 100%;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    position: fixed;
-    transform-origin: top;
-    transform: rotateX(180deg);
-    transition: transform 500ms ease; 
-
-    ul {
-        list-style: none; 
-
-        li a {
-            text-decoration: none;
-            font-size: 5rem;
-            font-weight: 400;
-            line-height: 5.1rem;
-            color: $black; 
-        }
-    }
-}
-  
-.menu-item, .menu-item:hover {
-    color: $black;
-    position: relative; 
-}
-.menu-item:before {
-    content: "";
-    position: absolute;
-    background: rgba($primary, 0.5);
-    left: 0;
-    bottom: 10%;
-    right: 100%;
-    top: 60%;
-    z-index: -1;
-    transition: right 300ms ease-in-out; 
-}
-.menu-item:hover:before {
-    right: 0; 
-}
-  
-.social {
-    text-decoration: none;
-    color: $black;
-    font-size: 2rem;
-    margin-right: 25px;
-}
-
-.menu-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.half {
-    width: 50%;
-}
-
 
 /* Containers 
 --------------------------------- */
@@ -254,9 +105,6 @@ section h2 {
 
 /* Video section
 --------------------------------- */
-.video-section {
-}
-
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
@@ -270,46 +118,11 @@ section h2 {
         width: 100%;
         height: 100%;
         z-index: 0;
+        border: none;
     }
 }
-
-/* Photo section
---------------------------------- */
-.photo-section {
-    background-color: $black;
-    color: $white;
-}
-
-.grid {
-    z-index: $MIDGROUND;
-    margin: 0 0 0 25px;
-
-    img {
-        max-width: 100%;
-    }
-}
-.grid-sizer {
-    width: calc(33.33% - 25px);
-}
-
-.item {
-    width: calc(33.33% - 25px);
-    float: left;
-    margin-bottom: 25px;
-}
-
-.item.wide {
-    width: calc(66.66% - 25px);
-}
-.item.ultrawide {
-    width: calc(100% - 25px);
-}
-
-      
-
-/* Logo section 
---------------------------------- */
-.logo-section {
+.video-section {
+    background-color: $white;
 }
 
 /* Main-Button
@@ -350,36 +163,9 @@ footer {
     h1.sitetitle {
         font-size: 2.75rem !important;
     }
-
-    .grid-sizer {
-        width: calc(100% - 25px);
-    }
-    
-    .item {
-        width: calc(100% - 25px);
-        float: left;
-        margin-bottom: 25px;
-    }
-    
-    .item.wide {
-        width: calc(100% - 25px);
-    }
-    .item.ultrawide {
-        width: calc(100% - 25px);
-    }
-
-    img.logo, svg.mainlogo {
-        max-width: 150px;
-    }
 }
 
 /* Smaller than tablet */
 @media (max-width: 750px) {
 
 }
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}

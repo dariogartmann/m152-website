@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-family: 'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+}
+a:hover {
+    color: darken($primary, 0.5);
+}
+
+p {
+    max-width: 100%;
+}
