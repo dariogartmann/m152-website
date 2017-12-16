@@ -31,11 +31,26 @@ img.logo, svg.mainlogo {
     z-index: 40000;
 }
 
+hr {
+    height: 2px;
+    max-width: 75px;
+    border: none;
+    background-color: $primary;
+    margin-left: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+
 /* Containers 
 --------------------------------- */
 .da-container {
     max-width: 960px;
     margin: 0 auto;
+}
+
+.flex {
+    display: flex;
 }
 
 .full-width-section {
@@ -59,12 +74,20 @@ img.logo, svg.mainlogo {
         width: calc(100% - 50px);
         width: calc(100vw - 50px);
     }
+
+    .flex {
+        display: block;
+
+        .half {
+            width: 100%;
+        }
+    }
 }
 
 /* Frontpage 
 --------------------------------- */
 .frontpage {
-    background-image: url("../images/gallery/full/DSC03090.jpg");
+    background-image: url("../images/banner.jpg");
     background-size: cover;
     background-position: bottom;
     height: 100vh;
@@ -147,7 +170,7 @@ section h2 {
 /* Footer 
 --------------------------------- */
 footer {
-    background-color: $black;
+    background-color: $darkgray;
     color: $gray;
 }
 
@@ -163,9 +186,4 @@ footer {
     h1.sitetitle {
         font-size: 2.75rem !important;
     }
-}
-
-/* Smaller than tablet */
-@media (max-width: 750px) {
-
 }

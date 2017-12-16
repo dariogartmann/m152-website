@@ -39,15 +39,15 @@ gulp.task('deploy', ['js','css'], function() {
     }, function(res){
         var conn = ftp.create( {
             host:     'ftp.informatik.sg',
-            user:     'todo',
+            user:     'gruppe1-ina4a@informatik.sg',
             password: res.pass,
             parallel: 10
         } );
 
         var globs = [
-            'assets/**',
+            '/assets/**/*',
             'index.html',
-            '.htaccess'
+            'favicon.png'
         ];
 
         // using base = '.' will transfer everything to /public_html correctly
