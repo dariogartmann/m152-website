@@ -1,10 +1,7 @@
-/* Photo section
---------------------------------- */
 .photo-section {
-    background-color: $black;
-    color: $white;
+    background-color: $white;
+    color: $black;
 }
-
 .grid {
     z-index: $MIDGROUND;
     margin: 0 0 0 25px;
@@ -30,8 +27,35 @@
     width: calc(100% - 25px);
 }
 
+.lumos-container {
+    z-index: 40000;
+    background-color: $white;
+
+    .lumos-alt-text {
+        text-shadow: none;
+        color: $black;
+    }
+
+    svg {
+        fill: $black;
+
+        &:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        &.lumos-close:hover {
+            transform: translateY(-50%) translateX(50%) scale(1.2);        }
+    }
+
+    .spinner-container .spinner {
+        background-color: $black;
+    }
+}
+
+
+
 /* Smaller than phablet */
-@media (max-width: 550px) {
+@media(max-width: 550px) {
     .grid-sizer {
         width: calc(100% - 25px);
     }
