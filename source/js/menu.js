@@ -32,6 +32,7 @@ $(document).ready(function(){
     var $banner = $('.navbar');
     var $win = $(window);
     var winH = $win.height();
+    $('.frontpage').css("height", winH + "px");
 
     $win.on("scroll", function () {
         if ($(this).scrollTop() >= winH ) {
@@ -42,5 +43,6 @@ $(document).ready(function(){
 
     }).on("resize", function(){ 
        winH = $(this).height(); 
+        $('.frontpage').css("height", winH + "px");
     });
 });

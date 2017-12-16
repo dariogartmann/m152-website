@@ -45,7 +45,7 @@ gulp.task('deploy', ['js','css'], function() {
         } );
 
         var globs = [
-            '/assets/**/*',
+            './assets/**',
             'index.html',
             'favicon.png'
         ];
